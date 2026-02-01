@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +8,12 @@
   <meta name="description" content="Biuro Rachunkowe JAGIMO Sp. z o.o. – księgowość, kadry i płace dla firm i spółek. Obsługa lokalna w Strzelinie oraz zdalna." />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    // Jeśli JS działa, włączamy animacje (CSS będzie ich używał tylko dla .js)
+    document.documentElement.classList.remove("no-js");
+    document.documentElement.classList.add("js");
+  </script>
 </head>
 
 <body>
@@ -21,14 +27,14 @@
       </div>
     </div>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Nawigacja">
       <a href="#o-nas">O nas</a>
       <a href="#oferta">Oferta</a>
       <a href="#dlaczego-my">Dlaczego my</a>
       <a href="#kontakt" class="nav-cta">Kontakt</a>
     </nav>
 
-    <button class="nav-toggle">☰</button>
+    <button class="nav-toggle" aria-label="Otwórz menu" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -144,9 +150,9 @@
       </div>
 
       <iframe
+        title="Mapa – ul. Oławska 5, Strzelin"
         src="https://www.google.com/maps?q=ul.%20O%C5%82awska%205%2C%20Strzelin&output=embed"
-        loading="lazy">
-      </iframe>
+        loading="lazy"></iframe>
     </div>
   </section>
 </main>
@@ -158,28 +164,43 @@
 </footer>
 
 <script>
-  // menu mobile
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav");
-  toggle.addEventListener("click", () => nav.classList.toggle("open"));
+  document.addEventListener("DOMContentLoaded", () => {
+    // menu mobile (bezpiecznie)
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
 
-  // hero bg
-  document.querySelector(".hero-bg").style.backgroundImage =
-    "url('assets/hero.webp')";
+    // hero bg (bezpiecznie)
+    const heroBg = document.querySelector(".hero-bg");
+    if (heroBg) {
+      heroBg.style.backgroundImage = "url('assets/hero.webp')";
+    }
 
-  // scroll reveal
-  const revealItems = document.querySelectorAll(".reveal");
+    // scroll reveal
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+    if (prefersReduced) {
+      revealItems.forEach(el => el.classList.add("is-visible"));
+      return;
+    }
 
-  revealItems.forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+    revealItems.forEach(el => observer.observe(el));
+  });
 </script>
 </body>
 </html>
