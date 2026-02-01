@@ -713,3 +713,22 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
     padding-left: 0;
   }
 }
+
+/* więcej oddechu między sekcjami */
+.section{
+  padding: 96px 0; /* było 80 */
+}
+
+.section.alt{
+  padding: 104px 0;
+}
+
+/* większa przerwa pod nagłówkami sekcji */
+.section h2{
+  margin-bottom: 24px;
+}
+
+/* lekko większa odległość pomiędzy gridami w sekcjach */
+.grid-2{
+  gap: 44px; /* było 30 */
+}
