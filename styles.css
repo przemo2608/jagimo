@@ -342,13 +342,6 @@ body{
   font-size:18px;
 }
 
-.contact-actions{
-  margin-top: 18px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
 iframe{
   width:100%;
   min-height: 340px;
