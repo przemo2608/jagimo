@@ -1,247 +1,30 @@
-:root {
-  --blue: #1d4ed8;
-  --bg: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --line: #e2e8f0;
-  --soft: #f1f5ff;
-  --radius: 16px;
-  --shadow: 0 12px 30px rgba(0,0,0,.1);
+:root{
+  --blue:#1d4ed8;
+  --blue2:#2563eb;
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --line:#e2e8f0;
+  --radius:16px;
 }
 
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  color: var(--text);
-  background: var(--bg);
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  font-size:16.5px;
+  line-height:1.65;
 }
 
-.container {
-  width: min(1100px, 92%);
-  margin: auto;
+.container{
+  width:min(1100px, 92%);
+  margin:0 auto;
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  background: white;
-  border-bottom: 1px solid var(--line);
-  z-index: 10;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-}
-
-.brand {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.brand-mark {
-  width: 40px;
-  height: 40px;
-  background: var(--blue);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.brand-text span { color: var(--muted); font-size: 14px; }
-
-.nav {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-.nav a { color: var(--text); text-decoration: none; font-weight: 600; }
-.nav a:hover { text-decoration: underline; }
-.nav.open { display: flex; }
-.nav-toggle { display: none; }
-
-.nav-cta {
-  background: var(--blue);
-  color: white !important;
-  padding: 8px 14px;
-  border-radius: 999px;
-  text-decoration: none !important;
-}
-
-.hero {
-  position: relative;
-  min-height: 80vh;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,.8);
-}
-
-.hero-content {
-  position: relative;
-  padding: 80px 0;
-}
-
-.hero-card {
-  max-width: 600px;
-  background: white;
-  padding: 30px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.lead { color: var(--muted); font-weight: 600; }
-
-.btn {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  border: 1px solid var(--line);
-  margin-right: 10px;
-}
-.btn.primary {
-  background: var(--blue);
-  color: #fff;
-  border-color: transparent;
-}
-.btn.ghost {
-  background: #fff;
-  color: var(--text);
-}
-
-.section {
-  padding: 80px 0;
-}
-.section.alt {
-  background: #f9fbff;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.image {
-  width: 100%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.card ul { margin: 0; padding-left: 18px; color: var(--muted); }
-.card li { margin: 8px 0; }
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-.why-item {
-  background: white;
-  padding: 16px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.muted { color: var(--muted); }
-
-iframe {
-  width: 100%;
-  min-height: 300px;
-  border: 0;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.footer {
-  padding: 30px 0;
-  border-top: 1px solid var(--line);
-  text-align: center;
-  color: var(--muted);
-}
-
-/* ===== ANIMACJE SCROLL – tylko gdy JS działa ===== */
-html.js .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  filter: blur(6px);
-  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
-  will-change: opacity, transform, filter;
-}
-html.js .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-html.js .stagger > * {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 650ms ease, transform 650ms ease;
-}
-html.js .reveal.is-visible .stagger > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-html.js .reveal.is-visible .stagger > *:nth-child(1) { transition-delay: .10s }
-html.js .reveal.is-visible .stagger > *:nth-child(2) { transition-delay: .20s }
-html.js .reveal.is-visible .stagger > *:nth-child(3) { transition-delay: .30s }
-html.js .reveal.is-visible .stagger > *:nth-child(4) { transition-delay: .40s }
-html.js .reveal.is-visible .stagger > *:nth-child(5) { transition-delay: .50s }
-html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
-
-/* Dostępność */
-@media (prefers-reduced-motion: reduce) {
-  html.js .reveal, html.js .stagger > * {
-    transition: none !important;
-    transform: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .cards { grid-template-columns: 1fr; }
-  .grid-2 { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
-}
-
-/* (opcjonalnie) menu mobilne – jeśli chcesz */
-@media (max-width: 720px) {
-  .nav { display: none; }
-  .nav.open { display: flex; flex-direction: column; gap: 12px; }
-  .nav-toggle { display: inline-block; }
-}
-
-/* === TOP BAR (sticky + wygląd) === */
+/* ===== HEADER ===== */
 .site-header{
   position: sticky;
   top: 0;
@@ -252,119 +35,128 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
 }
 
 .header-inner{
-  padding: 16px 0;
-}
-
-.brand{
   display:flex;
   align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:16px 0;
 }
 
-.brand-text{ line-height: 1.05; }
+.brand-text{ line-height:1.05; }
+.brand-name{ font-weight:900; font-size:22px; letter-spacing:.2px; }
+.brand-sub{ font-size:14px; color:var(--muted); font-weight:600; margin-top:2px; }
 
-.brand-name{
-  font-weight: 900;
-  font-size: 22px;        /* większe JAGIMO */
-  letter-spacing: .2px;
+.nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
-
-.brand-sub{
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 600;
-  margin-top: 2px;
-}
-
-/* linki w menu */
 .nav a{
-  text-decoration: none;
-  font-weight: 700;
-  color: var(--text);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
 }
 .nav a:hover{ text-decoration: underline; }
 
-/* przycisk "Kontakt" w menu – jak pill */
 .nav-cta{
   background: var(--blue);
-  color: #fff !important;
-  padding: 10px 16px;
-  border-radius: 999px;
+  color:#fff !important;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(29,78,216,.25);
   box-shadow: 0 10px 20px rgba(29,78,216,.20);
-  border: 1px solid rgba(29,78,216,.25);
+  text-decoration:none !important;
 }
 
-/* === HERO: większa i ładniejsza karta === */
+.nav-toggle{
+  display:none;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* ===== HERO ===== */
 .hero{
-  min-height: 78vh;
+  position:relative;
+  min-height:78vh;
   display:flex;
   align-items:center;
 }
-
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+}
 .hero::before{
-  /* delikatniejszy overlay niż wcześniej */
+  content:"";
+  position:absolute;
+  inset:0;
   background: linear-gradient(90deg, rgba(255,255,255,.92), rgba(255,255,255,.75), rgba(255,255,255,.35));
 }
-
 .hero-content{
+  position:relative;
   padding: 72px 0;
 }
 
 .hero-card{
-  max-width: 760px;               /* większy prostokąt */
-  padding: 36px;                  /* więcej oddechu */
-  border-radius: 20px;
+  max-width: 760px;
+  background:#fff;
+  padding:36px;
+  border-radius:20px;
   border: 1px solid rgba(226,232,240,.9);
   box-shadow: 0 18px 50px rgba(15,23,42,.14);
 }
 
 .hero-card h1{
-  margin: 0 0 14px;
+  margin:0 0 14px;
   font-size: clamp(30px, 3.2vw, 44px);
-  line-height: 1.12;
-  letter-spacing: -.02em;
+  line-height:1.12;
+  letter-spacing:-0.02em;
 }
 
 .hero-card p{
-  margin: 0 0 14px;
-  color: var(--muted);
-  font-size: 16px;
+  margin:0 0 14px;
+  color:#334155;
 }
 
 .hero-card .lead{
   color: var(--text);
-  font-weight: 700;
-  font-size: 17px;
+  font-weight:800;
 }
 
-/* === PRZYCISKI: prawdziwy wygląd buttonów === */
+/* ===== BUTTONS ===== */
 .hero-actions{
   display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 18px;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 800;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:800;
   text-decoration:none !important;
-  border: 1px solid var(--line);
+  border:1px solid var(--line);
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
 .btn.primary{
-  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
   color:#fff;
-  border-color: transparent;
+  border-color:transparent;
   box-shadow: 0 14px 28px rgba(29,78,216,.25);
 }
 
 .btn.ghost{
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.92);
   color: var(--text);
 }
 
@@ -372,185 +164,51 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
   transform: translateY(-1px);
   box-shadow: 0 16px 36px rgba(15,23,42,.14);
 }
+.btn:active{ transform: translateY(0); }
 
-.btn:active{
-  transform: translateY(0);
+/* ===== SECTIONS (więcej przestrzeni) ===== */
+.section{ padding: 96px 0; }
+.section.alt{ padding: 104px 0; background:#f9fbff; }
+
+.section h2{
+  font-size: clamp(30px, 3vw, 40px);
+  letter-spacing:-0.01em;
+  margin:0 0 24px;
 }
 
-/* === MOBILE: hamburger widoczny i menu w dropdown === */
-@media (max-width: 720px){
-  .nav{ display:none; }
-  .nav.open{
-    display:flex;
-    position:absolute;
-    right: 16px;
-    top: 70px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius: 14px;
-    padding: 14px;
-    flex-direction:column;
-    gap: 12px;
-    box-shadow: 0 18px 40px rgba(15,23,42,.12);
-  }
-  .nav-toggle{
-    display:inline-flex;
-    border: 1px solid var(--line);
-    background:#fff;
-    border-radius: 12px;
-    padding: 10px 12px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-}
-
-/* =========================
-   O NAS – większa typografia + niebieskie akcenty
-   ========================= */
-#o-nas h2{
-  font-size: clamp(30px, 3vw, 38px);
-  margin-bottom: 16px;
-}
-
-#o-nas p{
-  font-size: 17px;
-  line-height: 1.7;
-  color: #334155; /* czytelny granat */
-  margin-bottom: 14px;
-  max-width: 62ch;
-}
-
-#o-nas p strong{
-  color: var(--text);
-}
-
-/* delikatny niebieski „wyróżnik” przy tekście (lewa krawędź) */
-#o-nas .container.grid-2 > div{
-  padding-left: 16px;
-  border-left: 4px solid rgba(29,78,216,.18);
-}
-
-/* zdjęcie – bardziej „premium” */
-#o-nas .image{
-  max-width: 560px;
-  border-radius: 22px;
-  box-shadow: 0 22px 55px rgba(15,23,42,.16);
-  border: 1px solid rgba(29,78,216,.10);
-}
-
-/* =========================
-   ZAKRES USŁUG – większe karty + więcej niebieskiego
-   ========================= */
-#oferta h2{
-  font-size: clamp(30px, 3vw, 38px);
-  margin-bottom: 22px;
-}
-
-/* jeśli chcesz większy odstęp pod nagłówkiem */
-#oferta .container{
-  padding-top: 6px;
-}
-
-.cards{
-  gap: 26px; /* więcej powietrza */
-}
-
-.card{
-  padding: 28px;
-  border-radius: 22px;
-  border: 1px solid rgba(29,78,216,.12);
-  box-shadow: 0 20px 55px rgba(15,23,42,.12);
-  position: relative;
-  overflow: hidden;
-  transform: translateY(0);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-/* niebieski pasek u góry karty */
-.card::before{
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0;
-  height:5px;
-  background: linear-gradient(90deg, #1d4ed8, #2563eb);
-}
-
-/* ikonka-kółko obok tytułu (daje fajny akcent) */
-.card h3{
-  font-size: 21px;
-  margin: 0 0 14px 0;
-  display:flex;
+/* ===== LAYOUTS ===== */
+.grid-2{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
   align-items:center;
-  gap: 10px;
 }
+.grid-2 > div{ min-width:0; }
 
-.card h3::before{
-  content:"";
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #2563eb;
-  box-shadow: 0 0 0 6px rgba(37,99,235,.12);
-}
-
-/* lista – większa i czytelniejsza */
-.card ul{
-  margin: 0;
-  padding-left: 20px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #334155;
-}
-
-.card li{ margin: 8px 0; }
-
-/* hover premium */
-.card:hover{
-  transform: translateY(-2px);
+.image{
+  width:100%;
+  max-width: 560px;
+  justify-self:end;
+  border-radius:24px;
+  border:1px solid rgba(29,78,216,.10);
   box-shadow: 0 26px 70px rgba(15,23,42,.16);
 }
 
-/* responsywność: na mobile bez nadmiaru ozdobników */
-@media (max-width: 900px){
-  #o-nas .container.grid-2 > div{
-    border-left: none;
-    padding-left: 0;
-  }
-}
-
-/* =========================================================
-   OVERRIDES – O NAS / OFERTA / DLACZEGO MY / KONTAKT
-   (wklej na sam koniec styles.css)
-   ========================================================= */
-
-/* globalnie: większe nagłówki sekcji */
-.section h2{
-  font-size: clamp(30px, 3vw, 40px);
-  letter-spacing: -0.01em;
-  margin: 0 0 18px;
-}
-
-/* ---------- O NAS ---------- */
+/* ===== O NAS ===== */
 #o-nas p{
-  font-size: 17px;
-  line-height: 1.75;
-  color: #334155;
-  margin: 0 0 14px;
+  font-size:17px;
+  line-height:1.75;
+  color:#334155;
+  margin:0 0 14px;
   max-width: 64ch;
 }
-
 #o-nas .container.grid-2 > div{
   padding: 6px 0 6px 18px;
   border-left: 4px solid rgba(29,78,216,.22);
 }
+.muted{ color: var(--muted); }
 
-#o-nas .image{
-  border-radius: 24px;
-  border: 1px solid rgba(29,78,216,.10);
-  box-shadow: 0 26px 70px rgba(15,23,42,.16);
-}
-
-/* ---------- ZAKRES USŁUG (karty) ---------- */
+/* ===== OFERTA ===== */
 #oferta{
   background:
     radial-gradient(1200px 600px at 20% -10%, rgba(29,78,216,.10), transparent 55%),
@@ -558,87 +216,83 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
     #f9fbff;
 }
 
-#oferta .cards{
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 26px;
 }
 
-#oferta .card{
-  padding: 30px;
-  border-radius: 24px;
-  border: 1px solid rgba(29,78,216,.14);
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:24px;
+  border:1px solid rgba(29,78,216,.14);
   box-shadow: 0 22px 60px rgba(15,23,42,.12);
-  position: relative;
-  overflow: hidden;
+  position:relative;
+  overflow:hidden;
+  min-height: 280px; /* równa wysokość */
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* pasek akcentu u góry karty */
-#oferta .card::before{
+.card::before{
   content:"";
   position:absolute;
   left:0; right:0; top:0;
   height:6px;
-  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  background: linear-gradient(90deg, var(--blue), var(--blue2));
 }
 
-/* tytuły kart + ikonki (bez zmiany HTML) */
-#oferta .card h3{
-  font-size: 22px;
+.card h3{
+  font-size:22px;
   margin: 6px 0 16px;
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-/* domyślna kropka */
-#oferta .card h3::before{
+.card h3::before{
   content:"";
-  width:10px;height:10px;border-radius:999px;
-  background:#2563eb;
+  width:10px; height:10px;
+  border-radius:999px;
+  background: var(--blue2);
   box-shadow: 0 0 0 6px rgba(37,99,235,.12);
 }
 
-/* ikonki per karta (1-3) */
-#oferta .card:nth-child(1) h3::after{
-  content:"  📘";
-  font-size: 18px;
-}
-#oferta .card:nth-child(2) h3::after{
-  content:"  👥";
-  font-size: 18px;
-}
-#oferta .card:nth-child(3) h3::after{
-  content:"  🧾";
-  font-size: 18px;
-}
+/* ikonki per karta */
+#oferta .card:nth-child(1) h3::after{ content:"  📘"; font-size:18px; }
+#oferta .card:nth-child(2) h3::after{ content:"  👥"; font-size:18px; }
+#oferta .card:nth-child(3) h3::after{ content:"  🧾"; font-size:18px; }
 
-#oferta .card ul{
+.card ul{
   margin:0;
-  padding-left: 20px;
-  font-size: 16px;
-  line-height: 1.8;
-  color: #334155;
+  padding-left:20px;
+  font-size:16px;
+  line-height:1.8;
+  color:#334155;
 }
-#oferta .card li{ margin: 8px 0; }
+.card li{ margin:8px 0; }
 
-#oferta .card:hover{
+.card:hover{
   transform: translateY(-3px);
   box-shadow: 0 30px 80px rgba(15,23,42,.16);
   border-color: rgba(29,78,216,.22);
 }
 
-/* ---------- DLACZEGO MY ---------- */
+/* ===== DLACZEGO MY ===== */
 #dlaczego-my{
   background:
     radial-gradient(900px 500px at 15% 0%, rgba(29,78,216,.08), transparent 55%),
     #ffffff;
 }
 
-#dlaczego-my .why-grid{
+.why-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-#dlaczego-my .why-item{
+.why-item{
+  background:#fff;
   padding: 18px 18px 18px 54px;
   border-radius: 22px;
   border: 1px solid rgba(29,78,216,.12);
@@ -646,89 +300,140 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
   position: relative;
   font-size: 16px;
   line-height: 1.5;
-  color: #0f172a;
 }
 
-/* niebieska ikonka-check po lewej */
-#dlaczego-my .why-item::before{
+.why-item::before{
   content:"✓";
   position:absolute;
-  left:18px;
-  top:18px;
-  width:28px;height:28px;
-  border-radius: 12px;
+  left:18px; top:18px;
+  width:28px; height:28px;
+  border-radius:12px;
   display:flex;
   align-items:center;
   justify-content:center;
   background: rgba(37,99,235,.12);
   border: 1px solid rgba(37,99,235,.18);
-  color: #1d4ed8;
-  font-weight: 900;
+  color: var(--blue);
+  font-weight:900;
 }
 
-#dlaczego-my .why-item:hover{
-  transform: translateY(-2px);
-  transition: transform .18s ease;
-}
-
-/* ---------- KONTAKT ---------- */
+/* ===== KONTAKT ===== */
 #kontakt{
   background:
     radial-gradient(1100px 550px at 80% -5%, rgba(29,78,216,.10), transparent 55%),
     #f9fbff;
 }
 
-#kontakt p{
-  font-size: 17px;
-  line-height: 1.75;
-  color:#334155;
-}
-
-#kontakt strong{
-  color: var(--text);
-  font-size: 18px;
-}
-
-/* “karta” kontaktu z tłem i obramowaniem (bez zmian HTML) */
-#kontakt .container.grid-2 > div{
-  background:#ffffff;
+.contact-card{
+  background:#fff;
   border: 1px solid rgba(29,78,216,.12);
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 22px 60px rgba(15,23,42,.10);
 }
 
-/* mapa też jako karta */
-#kontakt iframe{
+#kontakt p{
+  font-size:17px;
+  line-height:1.75;
+  color:#334155;
+}
+#kontakt strong{
+  color:var(--text);
+  font-size:18px;
+}
+
+.contact-actions{
+  margin-top: 18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+iframe{
+  width:100%;
   min-height: 340px;
+  border:0;
   border-radius: 24px;
   border: 1px solid rgba(29,78,216,.10);
   box-shadow: 0 22px 60px rgba(15,23,42,.10);
 }
 
-/* ---------- Mobile: usuń border-left w O nas ---------- */
-@media (max-width: 900px){
-  #o-nas .container.grid-2 > div{
-    border-left: none;
-    padding-left: 0;
+/* ===== FOOTER ===== */
+.footer{
+  padding:30px 0;
+  border-top:1px solid var(--line);
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ===== SCROLL REVEAL (tylko gdy JS działa) ===== */
+html.js .reveal{
+  opacity:0;
+  transform: translateY(18px);
+  filter: blur(6px);
+  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+  will-change: opacity, transform, filter;
+}
+html.js .reveal.is-visible{
+  opacity:1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+html.js .stagger > *{
+  opacity:0;
+  transform: translateY(14px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+html.js .reveal.is-visible .stagger > *{
+  opacity:1;
+  transform: translateY(0);
+}
+html.js .reveal.is-visible .stagger > *:nth-child(1){ transition-delay:.10s; }
+html.js .reveal.is-visible .stagger > *:nth-child(2){ transition-delay:.20s; }
+html.js .reveal.is-visible .stagger > *:nth-child(3){ transition-delay:.30s; }
+html.js .reveal.is-visible .stagger > *:nth-child(4){ transition-delay:.40s; }
+html.js .reveal.is-visible .stagger > *:nth-child(5){ transition-delay:.50s; }
+html.js .reveal.is-visible .stagger > *:nth-child(6){ transition-delay:.60s; }
+
+@media (prefers-reduced-motion: reduce){
+  html.js .reveal, html.js .stagger > *{
+    transition:none !important;
+    transform:none !important;
+    filter:none !important;
+    opacity:1 !important;
   }
 }
 
-/* więcej oddechu między sekcjami */
-.section{
-  padding: 96px 0; /* było 80 */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .cards{ grid-template-columns: 1fr; }
+  .why-grid{ grid-template-columns: 1fr; }
+  .grid-2{ grid-template-columns: 1fr; }
+  #o-nas .container.grid-2 > div{
+    border-left:none;
+    padding-left:0;
+  }
+  .image{
+    max-width: 100%;
+    justify-self: start;
+  }
 }
 
-.section.alt{
-  padding: 104px 0;
-}
-
-/* większa przerwa pod nagłówkami sekcji */
-.section h2{
-  margin-bottom: 24px;
-}
-
-/* lekko większa odległość pomiędzy gridami w sekcjach */
-.grid-2{
-  gap: 44px; /* było 30 */
+@media (max-width: 720px){
+  .nav{ display:none; }
+  .nav.open{
+    display:flex;
+    position:absolute;
+    right:16px;
+    top:70px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius: 14px;
+    padding:14px;
+    flex-direction:column;
+    gap:12px;
+    box-shadow: 0 18px 40px rgba(15,23,42,.12);
+  }
+  .nav-toggle{ display:inline-flex; }
 }
