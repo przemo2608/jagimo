@@ -403,3 +403,117 @@ html.js .reveal.is-visible .stagger > *:nth-child(6) { transition-delay: .60s }
     cursor: pointer;
   }
 }
+
+/* =========================
+   O NAS – większa typografia + niebieskie akcenty
+   ========================= */
+#o-nas h2{
+  font-size: clamp(30px, 3vw, 38px);
+  margin-bottom: 16px;
+}
+
+#o-nas p{
+  font-size: 17px;
+  line-height: 1.7;
+  color: #334155; /* czytelny granat */
+  margin-bottom: 14px;
+  max-width: 62ch;
+}
+
+#o-nas p strong{
+  color: var(--text);
+}
+
+/* delikatny niebieski „wyróżnik” przy tekście (lewa krawędź) */
+#o-nas .container.grid-2 > div{
+  padding-left: 16px;
+  border-left: 4px solid rgba(29,78,216,.18);
+}
+
+/* zdjęcie – bardziej „premium” */
+#o-nas .image{
+  max-width: 560px;
+  border-radius: 22px;
+  box-shadow: 0 22px 55px rgba(15,23,42,.16);
+  border: 1px solid rgba(29,78,216,.10);
+}
+
+/* =========================
+   ZAKRES USŁUG – większe karty + więcej niebieskiego
+   ========================= */
+#oferta h2{
+  font-size: clamp(30px, 3vw, 38px);
+  margin-bottom: 22px;
+}
+
+/* jeśli chcesz większy odstęp pod nagłówkiem */
+#oferta .container{
+  padding-top: 6px;
+}
+
+.cards{
+  gap: 26px; /* więcej powietrza */
+}
+
+.card{
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(29,78,216,.12);
+  box-shadow: 0 20px 55px rgba(15,23,42,.12);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* niebieski pasek u góry karty */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:5px;
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+}
+
+/* ikonka-kółko obok tytułu (daje fajny akcent) */
+.card h3{
+  font-size: 21px;
+  margin: 0 0 14px 0;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.card h3::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #2563eb;
+  box-shadow: 0 0 0 6px rgba(37,99,235,.12);
+}
+
+/* lista – większa i czytelniejsza */
+.card ul{
+  margin: 0;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.card li{ margin: 8px 0; }
+
+/* hover premium */
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 26px 70px rgba(15,23,42,.16);
+}
+
+/* responsywność: na mobile bez nadmiaru ozdobników */
+@media (max-width: 900px){
+  #o-nas .container.grid-2 > div{
+    border-left: none;
+    padding-left: 0;
+  }
+}
