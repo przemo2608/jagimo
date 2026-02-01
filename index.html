@@ -7,10 +7,14 @@
   <title>Biuro Rachunkowe JAGIMO Sp. z o.o. – księgowość, kadry i płace | Strzelin</title>
   <meta name="description" content="Biuro Rachunkowe JAGIMO Sp. z o.o. – księgowość, kadry i płace dla firm i spółek. Obsługa lokalna w Strzelinie oraz zdalna." />
 
+  <!-- Inter (ładniejsza czcionka) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 
   <script>
-    // Jeśli JS działa, włączamy animacje (CSS będzie ich używał tylko dla .js)
     document.documentElement.classList.remove("no-js");
     document.documentElement.classList.add("js");
   </script>
@@ -25,7 +29,6 @@
         <div class="brand-sub">Biuro Rachunkowe</div>
       </div>
     </div>
-
 
     <nav class="nav" aria-label="Nawigacja">
       <a href="#o-nas">O nas</a>
@@ -138,7 +141,7 @@
   <!-- KONTAKT -->
   <section class="section alt reveal" id="kontakt">
     <div class="container grid-2 stagger">
-      <div>
+      <div class="contact-card">
         <h2>Kontakt</h2>
         <p><strong>Biuro Rachunkowe JAGIMO Sp. z o.o.</strong></p>
         <p>ul. Oławska 5<br>57-100 Strzelin</p>
@@ -147,6 +150,11 @@
           📞 537 416 467<br>
           📧 biuro.jagimo@gmail.com
         </p>
+
+        <div class="contact-actions">
+          <a class="btn primary" href="tel:+48690970418">Zadzwoń</a>
+          <a class="btn ghost" href="mailto:biuro.jagimo@gmail.com">Napisz e-mail</a>
+        </div>
       </div>
 
       <iframe
@@ -165,7 +173,6 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // menu mobile (bezpiecznie)
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".nav");
     if (toggle && nav) {
@@ -175,13 +182,9 @@
       });
     }
 
-    // hero bg (bezpiecznie)
     const heroBg = document.querySelector(".hero-bg");
-    if (heroBg) {
-      heroBg.style.backgroundImage = "url('assets/hero.webp')";
-    }
+    if (heroBg) heroBg.style.backgroundImage = "url('assets/hero.webp')";
 
-    // scroll reveal
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealItems = document.querySelectorAll(".reveal");
 
