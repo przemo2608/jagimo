@@ -442,3 +442,21 @@ html.js .reveal.is-visible .stagger > *:nth-child(6){ transition-delay:.60s; }
     font-size: clamp(28px, 2.6vw, 42px); /* minimalnie mniejszy, żeby się zmieścił */
   }
 }
+
+.footer-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer a{
+  color: var(--muted);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer a:hover{
+  color: var(--blue);
+}
