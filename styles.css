@@ -443,20 +443,22 @@ html.js .reveal.is-visible .stagger > *:nth-child(6){ transition-delay:.60s; }
   }
 }
 
+/* ===== Footer link (Polityka prywatności) ===== */
 .footer-inner{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:center;          
+  align-items:center;
+  gap: 10px;
+  flex-wrap:wrap;
 }
 
-.footer a{
-  color: var(--muted);
+.footer a,
+.footer a:visited{
+  color: var(--blue) !important;  
   text-decoration: underline;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .footer a:hover{
-  color: var(--blue);
+  text-decoration-thickness: 2px;
 }
