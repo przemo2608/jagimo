@@ -430,3 +430,15 @@ html.js .reveal.is-visible .stagger > *:nth-child(6){ transition-delay:.60s; }
   }
   .nav-toggle{ display:inline-flex; }
 }
+
+/* === HERO: tytuł zawsze w 1 linii na desktopie === */
+@media (min-width: 980px){
+  .hero-card{
+    max-width: 980px;
+  }
+
+  .hero-card h1{
+    white-space: nowrap;
+    font-size: clamp(28px, 2.6vw, 42px); /* minimalnie mniejszy, żeby się zmieścił */
+  }
+}
